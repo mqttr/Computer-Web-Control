@@ -1,4 +1,6 @@
 from flask import Flask, render_template, redirect, url_for
+import os
+
 from sound import Sound
 from light import led
 import keyboard
