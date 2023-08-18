@@ -1,17 +1,13 @@
 from flask import Flask, render_template, redirect, url_for
 import os
 from sound import Sound
-from comtypes import CLSCTX_ALL
-from keyboard import Keyboard
-import light
+import keyboard
 
-
-import math
 app = Flask(__name__)
 
 @app.route('/media_pause', methods=["GET", 'POST'])
 def media_pause():
-    Keyboard.key(Keyboard.VK_SPACE)
+    keyboard.press_and_release('space')
     return redirect(url_for('index'))
 
 @app.route('/media_rewind', methods=["GET", 'POST'])
@@ -20,12 +16,12 @@ def media_rewind():
 
 @app.route('/media_volume_up', methods=["GET", 'POST'])
 def media_volume_up():
-    Sound.volume_up()
+    Sound.volume_up(4)
     return redirect(url_for('index'))
 
 @app.route('/media_volume_down', methods=["GET", 'POST'])
 def media_volume_down():
-    Sound.volume_down()
+    Sound.volume_down(4)
     return redirect(url_for('index'))
 
 @app.route('/media_volume_mute', methods=["GET", 'POST'])
