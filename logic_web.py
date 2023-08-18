@@ -15,6 +15,7 @@ def media_pause():
 
 @app.route('/media_rewind', methods=["GET", 'POST'])
 def media_rewind():
+    
     return redirect(url_for('index'))
 
 @app.route('/media_volume_up', methods=["GET", 'POST'])
