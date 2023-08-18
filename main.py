@@ -1,4 +1,4 @@
-import logic_web
+import web_logic
 
 if __name__ == "__main__":
-    logic_web.run_web()
+    web_logic.run_web(5000)

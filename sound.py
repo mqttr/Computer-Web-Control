@@ -21,4 +21,7 @@ class Sound:
             keyboard.press_and_release('C')
 
     def mute():
+        '''
+        Presses the media mute button.
+        '''
         keyboard.press_and_release('D')
