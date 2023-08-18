@@ -1,7 +1,8 @@
 from flask import Flask, render_template, redirect, url_for
-import os
 from sound import Sound
+from light import led
 import keyboard
+
 
 app = Flask(__name__)
 
@@ -41,13 +42,13 @@ def admin_stop_service():
 
 @app.route('/led_on', methods=["GET", 'POST'])
 def led_on():
-    light.on()
+    led.on()
     return redirect(url_for('index'))
 
 
 @app.route('/led_off', methods=["GET", 'POST'])
 def led_off():
-    light.off()
+    led.off()
     return redirect(url_for('index'))
 
 
