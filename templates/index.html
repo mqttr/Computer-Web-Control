@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title> Computer Control - Mqttr</title>
+        <meta charset="utf-8" />
+        <style>
+            #fullscreen {
+                height: 99%;
+                width: 98%;
+                background-repeat: no-repeat;
+                background-position: center top;
+                float: left;
+                background-color: rgb( 69, 90, 100);
+                display: block;
+                text-align: center;
+            }
+            .container{
+                width: 80%;
+                height: 450px;
+                padding: 10px;
+                margin: 10px;
+                border: 3px solid black;
+                top: 50%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+                display: inline-block;
+            }
+            button{
+                width: 99%;
+                height: 90px;
+                margin: 5px;
+                border-radius: 15px;
+                font-size: 30pt;
+            }
+            h1 {
+                text-align: center;
+                font-size: 40pt;
+            }
+        </style>
+    </head>
+    <body class="fullscreen" id="fullscreen">
+        <div>
+            <div id="control_media" class="container">
+                <h1>Media</h1>
+                <form action="/media_pause" method="POST">
+                    <button class="volume" type="submit">Pause/Unpause</button>
+                </form>
+                <form action="/media_rewind" method="POST">
+                    <button class="volume" type="submit">Rewind</button>
+                </form>
+
+            </div>
+
+
+            <div id="control_volume" class="container">
+                <h1>Volume</h1>
+                <form action="/media_volume_up" method="POST">
+                    <button class="volume" type="submit">Volume Up</button>
+                </form>
+                <form action="/media_volume_down" method="POST">
+                    <button class="volume" type="submit">Volume Down</button>
+                </form>
+                <form action="/media_volume_mute" method="POST">
+                    <button class="volume" type="submit">Mute</button>
+                </form>
+            </div>
+            
+            <div id="control_admin" class="container">
+                <h1>Administrative Settings</h1>
+                <form action="/admin_computer_off" method="POST">
+                    <button type="submit">Turn off computer</button>
+                </form>
+                <form action="/admin_stop_service" method="POST">
+                    <button type="submit">Stop Webservice</button>
+                </form>
+            </div>
+
+        </div>
+    </body>
+</html>
