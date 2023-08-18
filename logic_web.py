@@ -71,8 +71,9 @@ def run_web():
     volume.SetMasterVolumeLevel(-20.0, None)
     print(volume.GetMasterVolumeLevel())
 
-    print(f"Value: {35.171868 * math.log10(.27)} Error Wrong: {-20.0 / (35.171868 * math.log10(.27))}")
-    print(f"Value: {35.171868 * math.log10(.52)} Error Wrong: {-10.0 / (35.171868 * math.log10(.52))}")
+    print(f"Value: {35.201682165513466 * math.log10(.27)} Error Wrong: {-20.0 / (35.201682165513466 * math.log10(.27))}")
+    print(f"Value: {35.201682165513466 * math.log10(.52)} Error Wrong: {-10.0 / (35.201682165513466 * math.log10(.52))}")
+    print(35.211682165513466*1.0011319889382464)
 
     app.run(host="0.0.0.0", port=5000)
 
