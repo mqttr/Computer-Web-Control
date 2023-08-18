@@ -21,11 +21,18 @@
                 height: 450px;
                 padding: 10px;
                 margin: 10px;
-                border: 3px solid black;
+                border: 6px solid black;
                 top: 50%;
                 background-color: whitesmoke;
                 border-radius: 10px;
                 display: inline-block;
+            }
+            nav{
+                display: flex;
+                text-align: center;
+            }
+            .onerow{
+                height: 250px;
             }
             button{
                 width: 99%;
@@ -34,10 +41,17 @@
                 border-radius: 15px;
                 font-size: 30pt;
             }
+            .floatertwo{
+                display: inline-block;
+                width: 35%;
+                position: absolute;
+
+            }
             h1 {
                 text-align: center;
                 font-size: 40pt;
             }
+
         </style>
     </head>
     <body class="fullscreen" id="fullscreen">
@@ -50,9 +64,7 @@
                 <form action="/media_rewind" method="POST">
                     <button class="volume" type="submit">Rewind</button>
                 </form>
-
             </div>
-
 
             <div id="control_volume" class="container">
                 <h1>Volume</h1>
@@ -67,6 +79,18 @@
                 </form>
             </div>
             
+            <div id="control_led" class="container onerow">
+                <h1>LED Lights</h1>
+                <nav>
+                <form action="/led_on" method="POST">
+                    <button class="led floatertwo" style="left: 13%;" type="submit">LED on</button>
+                </form>
+                <form action="/led_off" method="POST">
+                    <button class="led floatertwo" style="right: 13%;" type="submit">LED off</button>
+                </form>
+                </nav>
+            </div>
+            
             <div id="control_admin" class="container">
                 <h1>Administrative Settings</h1>
                 <form action="/admin_computer_off" method="POST">
@@ -76,6 +100,7 @@
                     <button type="submit">Stop Webservice</button>
                 </form>
             </div>
+
 
         </div>
     </body>

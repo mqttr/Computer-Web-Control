@@ -4,6 +4,10 @@ from sound import Sound
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from keyboard import Keyboard
+import light
+
+
+import math
 app = Flask(__name__)
 
 @app.route('/media_pause', methods=["GET", 'POST'])
@@ -40,21 +44,35 @@ def admin_stop_service():
     exit()
     return redirect(url_for('index'))
 
+@app.route('/led_on', methods=["GET", 'POST'])
+def led_on():
+    light.on()
+    return redirect(url_for('index'))
+
+
+@app.route('/led_off', methods=["GET", 'POST'])
+def led_off():
+    light.off()
+    return redirect(url_for('index'))
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
 def run_web():
+    devices = AudioUtilities.GetSpeakers()
+    interface = devices.Activate(
+        IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+    volume = interface.QueryInterface(IAudioEndpointVolume)
 
-    # devices = AudioUtilities.GetSpeakers()
-    # interface = devices.Activate(
-    #     IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-    # volume = interface.QueryInterface(IAudioEndpointVolume)
-    # volume.GetMute()
-    # print(volume.GetMasterVolumeLevel())
-    # print(volume.GetVolumeRange())
-    # volume.SetMasterVolumeLevel(-10.0, None)
-    # print(volume.GetMasterVolumeLevel())
+    print(volume.GetMute())
+    print(volume.GetVolumeRange())
+    volume.SetMasterVolumeLevel(-20.0, None)
+    print(volume.GetMasterVolumeLevel())
+
+    print(f"Value: {35.171868 * math.log10(.27)} Error Wrong: {-20.0 / (35.171868 * math.log10(.27))}")
+    print(f"Value: {35.171868 * math.log10(.52)} Error Wrong: {-10.0 / (35.171868 * math.log10(.52))}")
 
     app.run(host="0.0.0.0", port=5000)
 
