@@ -2,7 +2,6 @@ from flask import Flask, render_template, redirect, url_for
 import os
 from sound import Sound
 from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from keyboard import Keyboard
 import light
 
@@ -61,19 +60,6 @@ def index():
     return render_template('index.html')
 
 def run_web():
-    devices = AudioUtilities.GetSpeakers()
-    interface = devices.Activate(
-        IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-    volume = interface.QueryInterface(IAudioEndpointVolume)
-
-    print(volume.GetMute())
-    print(volume.GetVolumeRange())
-    volume.SetMasterVolumeLevel(-20.0, None)
-    print(volume.GetMasterVolumeLevel())
-
-    print(f"Value: {35.171868 * math.log10(.27)} Error Wrong: {-20.0 / (35.171868 * math.log10(.27))}")
-    print(f"Value: {35.171868 * math.log10(.52)} Error Wrong: {-10.0 / (35.171868 * math.log10(.52))}")
-
     app.run(host="0.0.0.0", port=5000)
 
 if __name__ == "__main__":
