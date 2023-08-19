@@ -5,84 +5,17 @@
     <head>
         <title> Computer Control - Mqttr</title>
         <meta charset="utf-8" />
-        <style>
-            #fullscreen {
-                height: 99%;
-                width: 98%;
-                background-repeat: no-repeat;
-                background-position: center top;
-                float: left;
-                background-color: rgb( 69, 90, 100);
-                display: block;
-                text-align: center;
-            }
-            h1 {
-                text-align: center;
-                font-size: 40pt;
-            }
-            .container{
-                width: 80%;
-                height: 350px;
-                padding: 10px;
-                margin: 10px;
-                border: 6px solid black;
-                top: 50%;
-                background-color: whitesmoke;
-                border-radius: 10px;
-                display: inline-block;
-            }
-            button{
-                width: 99%;
-                height: 90px;
-                margin: 5px;
-                border-radius: 15px;
-                font-size: 30pt;
-                border-width: 5px;
-            }
-            div.onerow{
-                height: 250px;
-            }
-            div.onerowtall{
-                height: 300px;
-            }
-            div.settingspace{
-                margin-top: 18%;
-            }
-            button.floatertwo{
-                display: inline-block;
-                width: 35%;
-                position: absolute;
-            }
-            button.floaterthree{
-                display: inline-block;
-                width: 22%;
-                position: absolute;
-            }
-            button.tall{
-                height: 140px;
-            }
-            button.smallbutton{
-                width: 100px;
-                height: 100px;
-                right: 5%;
-                top: 1%;
-                padding: 4px;
-                margin: 0px;
-                vertical-align: top;
-                position: absolute;
-            }
-            img {
-                display: block;
-                height: 80px;  
-                width: 80px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
     </head>
     <body class="fullscreen" id="fullscreen">
 
         <div id="top_buttons" >
+            <form action="/" method="POST">
+                <button style="left:1%;" class="smallbutton close-image"><img src="{{ url_for('static',filename='/icons/house.png') }}"></button>
+            </form>
+
             <form action="/admin" method="POST">
-                <button class="smallbutton close-image"><img src="{{url_for('static',filename='/icons/gear.png')}}"></button>
+                <button style="right: 5%;" class="smallbutton close-image"><img src="{{ url_for('static',filename='/icons/gear.png') }}"></button>
             </form>
         </div>
 

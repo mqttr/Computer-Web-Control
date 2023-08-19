@@ -85,7 +85,7 @@ def led_off():
     return redirect(url_for('index'))
 
 # Distinct Page Display
-@app.route('/')
+@app.route('/', methods=["GET", 'POST'])
 def index():
     '''
     Returns index.html
