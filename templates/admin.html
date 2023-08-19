@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title> Computer Control - Mqttr</title>
+        <meta charset="utf-8" />
+        <style>
+            #fullscreen {
+                height: 99%;
+                width: 98%;
+                background-repeat: no-repeat;
+                background-position: center top;
+                float: left;
+                background-color: rgb( 69, 90, 100);
+                display: block;
+                text-align: center;
+            }
+            h1 {
+                text-align: center;
+                font-size: 40pt;
+            }
+            .container{
+                width: 80%;
+                height: 350px;
+                padding: 10px;
+                margin: 10px;
+                border: 6px solid black;
+                top: 50%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+                display: inline-block;
+            }
+            button{
+                width: 99%;
+                height: 90px;
+                margin: 5px;
+                border-radius: 15px;
+                font-size: 30pt;
+                border-width: 5px;
+            }
+            div.onerow{
+                height: 250px;
+            }
+            div.onerowtall{
+                height: 300px;
+            }
+            button.floatertwo{
+                display: inline-block;
+                width: 35%;
+                position: absolute;
+            }
+            button.floaterthree{
+                display: inline-block;
+                width: 22%;
+                position: absolute;
+            }
+            button.tall{
+                height: 140px;
+            }
+            
+        </style>
+    </head>
+    <body class="fullscreen" id="fullscreen">
+
+        <div id="control_admin" class="container">
+            <h1>Admin Control</h1>
+            <form action="/admin_computer_off" method="POST">
+                <button>Turn off computer</button>
+            </form>
+        </div>
+
+        <div id="control_website" class="container">
+            <h1>Website Control</h1>
+            <form action="/admin_stop_service" method="POST">
+                <button>Stop Webservice</button>
+            </form>
+        </div>
+        
+    </body>
+</html>
