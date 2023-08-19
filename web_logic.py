@@ -92,13 +92,20 @@ def led_off():
     led.off()
     return redirect(url_for('index'))
 
-# HOME
+# Distinct Page Display
 @app.route('/')
 def index():
     '''
     Returns index.html
     '''
     return render_template('index.html')
+
+@app.route('/admin', methods=["GET", 'POST'])
+def admin():
+    '''
+    returns admin.html
+    '''
+    return render_template('admin.html')
 
 # START SERVICE
 def run_web(port = 5000):
