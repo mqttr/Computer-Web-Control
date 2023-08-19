@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for
-import os
+import os, sys
 
 from sound import Sound
 from light import led
@@ -66,14 +66,6 @@ def admin_computer_off():
     '''
     os.system('shutdown -s -t 0 /c "Web Python Script Shutdown -d u"')
     return redirect(url_for('index'))
-
-# SERVICE OFF
-@app.route('/admin_stop_service', methods=["GET", 'POST'])
-def admin_stop_service():
-    '''
-    Exits Python script
-    '''
-    exit()
 
 # LED CONTROL
 @app.route('/led_on', methods=["GET", 'POST'])
